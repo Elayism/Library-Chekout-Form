@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Checkout | Online Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            -webkit-animation-name: fadeIn;
+            /* Fade in the background */
+            -webkit-animation-duration: 0.4s;
+            animation-name: fadeIn;
+            animation-duration: 0.4s
+        }
+
+        .modal-content {
+            position: fixed;
+            bottom: 0;
+            background-color: #fefefe;
+            width: 100%;
+            -webkit-animation-name: slideIn;
+            -webkit-animation-duration: 0.4s;
+            animation-name: slideIn;
+            animation-duration: 0.4s
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: rgb(88, 77, 10);
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: rgb(88, 77, 10);
+            color: white;
+        }
+
+        @-webkit-keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+<body>
+
+    <h1>Checkout Form</h1>
+    <table>
+        <td>Name:</td>
+        <td> <input type="text" name="name" id="name" size="50" placeholder="First Name Last Name"></td>
+        <tr>
+            <td>Address:</td>
+            <td>
+                <input type="text" name="address" id="address" size="50" placeholder="Complete Address">
+            </td>
+        </tr>
+        <td>Region:</td>
+        <td>
+            <select name="Region" id="Region">
+                <option value="" selected disabled>Select your Region</option>
+                <option value:NCR>NCR</option>
+                <option value:Region>Region I</option>
+                <option value:Region>Region II</option>
+                <option value:Region>Region III</option>
+                <option value:Region>Region IV</option>
+                <option value:Region>Region V</option>
+                <option value:Region>Region VI</option>
+                <option value:Region>Region VII</option>
+                <option value:Region>Region VIII</option>
+                <option value:Region>Region IX</option>
+                <option value:Region>Region X</option>
+                <option value:Region>Region XI</option>
+                <option value:Region>Region XII</option>
+                <option value:Region>Region XIII</option>
+                <option value:MIMAROPA>MIMAROPA</option>
+                <option value:CAR>CAR</option>
+                <option value:BARMM>BARMM</option>
+            </select>
+        </td>
+        <tr>
+            <td>
+                Contact Number:
+            </td>
+            <td>
+                <input type="text" name="number" id="number" size="50" placeholder="Contact Number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Payment Method:
+            </td>
+            <td>
+                <input type="radio" name="PM" id="Cash on Delivery" value="Cash on Delivery"
+                    >
+                <label for="Cash on Delivery">Cash on Delivery</label>
+            </td>
+        <tr></tr>
+        <td></td>
+        <td>
+            <input type="radio" name="PM" id="Master Card" value="Master Card" >
+            <label for="Master Card">Master Card</label>
+        </td>
+        <tr></tr>
+        <td></td>
+        <td>
+            <input type="radio" name="PM" id="Visa" value="Visa" >
+            <label for="Visa">Visa</label>
+        </td>
+        </td>
+        <tr></tr>
+        <td></td>
+        <td>
+            <input type="radio" name="PM" id="American Express" value="American Express"
+            >
+            <label for="American Express">American Express</label>
+        </td>
+        </td>
+        <tr></tr>
+        <td></td>
+        <td>
+            <button id="myBtn">Submit Order</button>
+        </td>
+        </td>
+        </tr>
+    </table>
+
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 class="text-center">Order Details</h2>
+            </div>
+            <div class="modal-body">
+                <p>Name: <span id="dname"></span></p>
+                <p>Address: <span id="daddress"></span></p>
+                <p>Region: <span id="dRegion"></span></p>
+                <p>Contact number: <span id="dnumber"></span></p>
+                <p>Payment Method: <span id="payment"></span></p>
+            
+
+            </div>
+            <div class="modal-footer">
+                <h3></h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+
+        var btn = document.getElementById("myBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+            getForm();
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function getForm() {
+            let vname = document.getElementById("name").value;
+            let vaddress = document.getElementById("address").value;
+            let vRegion = document.getElementById("Region").value;
+            let vnumber = document.getElementById("number").value;
+            let vPaymentMethod = document.querySelector('input[name="PM"]:checked')?.value;
+
+            document.getElementById("dname").innerHTML = vname;
+            document.getElementById("daddress").innerHTML = vaddress;
+            document.getElementById("dRegion").innerHTML = vRegion;
+            document.getElementById("dnumber").innerHTML = vnumber;
+            document.getElementById("payment").innerHTML = vPaymentMethod ?? "";
+        }
+    </script>
+
+</body>
+
+</html>
